@@ -46,10 +46,14 @@ class GreenhousePage extends Component {
     return (
       <div>
         <h1>Greenhouse</h1>
-        { JSON.stringify(greenhouseData) }
+        <div><pre>{JSON.stringify(greenhouseData, null, 2) }</pre></div>
         <br />
-        <button disabled={greenhouseData.on} onClick={this.turnOn}>Turn on</button>
-        <button disabled={!greenhouseData.on} onClick={this.turnOff}>Turn off</button>
+        
+        { greenhouseData.board && 
+        <div>
+          <button disabled={greenhouseData.board.on} onClick={this.turnOn}>Turn on</button>
+          <button disabled={!greenhouseData.board.on} onClick={this.turnOff}>Turn off</button>
+        </div>}
       </div>
     )
   }
